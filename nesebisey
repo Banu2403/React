@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+
+const Dropdown = () => {
+  // Dropdown-un açılıb-bağlanmasını idarə edirik
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Dropdown-u açmaq və bağlamaq üçün funksiya
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);  // Əgər dropdown açıqdırsa, bağlayır, yoxsa açır
+  };
+
+  return (
+    <div>
+      <button onClick={toggleDropdown}>
+        {isOpen ? 'Dropdown-u Bağla' : 'Dropdown-u Aç'}
+      </button>
+      
+      {/* Əgər dropdown açıqdırsa, seçkilər göstərilir */}
+      {isOpen && (
+        <div style={{ border: '1px solid #ccc', padding: '10px', marginTop: '10px' }}>
+          <p>Seçim 1</p>
+          <p>Seçim 2</p>
+          <p>Seçim 3</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Dropdown;
